@@ -35,6 +35,9 @@ const ReportPage: React.FC = () => {
   }
 
   if (!keycloak.authenticated) {
+    keycloak.init({
+        pkceMethod: "S256"
+    })
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <button
