@@ -1,8 +1,8 @@
 @startuml
 
 actor "Пользователь" as U
-participant "App" as F
-participant "API" as B
+participant "Front App" as F
+participant "Backend API" as B
 participant "Keycloak" as K
 
 U -> F: login()
@@ -18,6 +18,9 @@ K -> K: валидация кода авторизации и code_verifier
 K --> F: возвращение токена
 F -> B: запрос данных с передачей токена
 B -> B: верификация пользователя по токену
+note right
+Как проверить токен на соответствие пользователю в Keycloak?
+end note
 B -> F: запрос данных с передачей токена
 
 @enduml
